@@ -1,0 +1,257 @@
+html {
+    font-size: 10px;
+    font-family: 'sans-serif';
+}
+
+p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+
+h1 {
+    font-family: 'billabong';
+    text-align: center;
+    font-size: 13rem;
+    font-weight: 100;
+    margin: 2rem 0;
+    letter-spacing: -1px;
+    color: black;
+}
+
+@font-face {
+    font-family: 'billabong';
+	src: url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot?#iefix") format('embedded-opentype'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.woff") format('woff'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.ttf") format('truetype'), url("https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.svg#billabongregular") format('svg');
+}
+
+.photoGrid{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.figure {
+    flex-basis: calc(33.333% - 4rem);
+    border: 1px solid #d3d3d3;
+    padding: 2rem;
+    flex-grow: 1;
+    margin: 0 2rem 2rem 2rem;
+}
+
+.photo {
+    width: calc(100% + 4rem);
+    margin: -2rem 0rem 0rem -2rem;
+
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    flex-basis: 48%;
+    color: red;
+    font-size: 15px;
+    border: 2px solid #f2f2f2;
+    height: 50px;
+    padding: 5px;
+}
+
+.addIcon {
+    margin: 20px auto;
+    display: table;
+    padding: 20px;
+    background: url("https://www.svgrepo.com/show/68819/plus.svg") center no-repeat;
+    background-size: contain;
+    border: none;
+}
+.commentsIcon {
+    margin: 20px ;
+    display: inline;
+    display: table;
+    padding: 20px;
+    background: url("https://cdn.iconscout.com/icon/free/png-256/free-comment-3251596-2724645.png") center no-repeat;
+    background-size: contain;
+    border: none;
+}
+
+.form  {
+    background: white;
+    margin: 0 auto;
+    max-width: 360px;
+    padding: 45px;
+    text-align: center;
+}
+
+.form input {
+    font-family: sans-serif;
+    background: #f2f2f2;
+    width: 100%;
+    border: none;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;   
+    margin: 0 0 15px;
+
+}
+
+.form button {
+    font-family: 'sans-serif';
+    text-transform: uppercase;
+    background: #065784;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+.form button:hover {
+    background: #7B8589;
+}
+
+button:hover {
+    border-color: blue;
+}
+.commentsContainer{
+    display: flex;
+    width: 100%;
+    border: 1px solid #d3d3d3;
+    padding: 2rem;
+    margin: 2rem;
+}
+.commentsPhoto{
+    width: 100%;
+    height: auto;
+}
+.commentsViewContainer{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+    padding-left: 5%;
+}
+
+.likeIcon{
+    margin: 10px;
+    display: inline;
+    height: auto;
+    padding: 20px;
+    background: url("https://static.vecteezy.com/system/resources/previews/000/423/558/non_2x/like-icon-vector-illustration.jpg") center no-repeat;
+    background-size: contain;
+    border: none;
+}
+
+.likedIcon{
+    margin: 10px;
+    height: auto;
+    padding: 20px;
+    background: url("https://static.vecteezy.com/system/resources/previews/000/422/468/non_2x/like-icon-vector-illustration.jpg") center no-repeat;
+    background-size: contain;
+    border: none;
+}
+.detailCommentButton{
+
+    height: 30px;
+    background: url("https://static.vecteezy.com/system/resources/previews/005/892/991/non_2x/send-icon-style-free-vector.jpg") center no-repeat;
+    background-size: contain;
+    border: none;
+}
+.detailCommentAvatar{
+    height: 50px;   
+    width: auto;
+    border-radius: 50%;
+    border: 0px;
+    margin-right: 20px;
+}
+.detailCommentContainer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+p{
+    font-size: 16 px;
+}
+
+.detailCommentInput{
+    height: 40px;
+    width: 100%;
+
+}
+.login-main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    /* background-color: rgb(41, 39, 39) ; */
+    background-image: url(https://wallpaperaccess.com/full/5088857.jpg);
+}
+.login-card-container{
+    min-width: 400px;
+    width: 40%;
+    min-height: 50%;
+    background-color: #00000079;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: #065784;
+    font-size: 13px;
+}
+
+.login-button{
+    width: 10% ;
+    max-height: 40px;
+    color: #000;
+}
+.login-input{
+    width: 70%;
+    height: 30px;
+    margin: 10px;
+    background-color: transparent;
+    outline:0;
+    border-width: 0 0 2px 0;
+    border-bottom-color: #008bc3;
+    color: white;
+    
+}
+.login-input::placeholder{
+    color: #0173a0;
+}
+
+.parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* This will create space between the elements */
+  }
+
+.centered {
+    /* Center horizontally and vertically */
+    margin-left: auto;
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+  }
+  .aligned-end {
+    /* Align to the end (right side) */
+    margin-left: auto;
+    
+  }
+
+
+
+
+
