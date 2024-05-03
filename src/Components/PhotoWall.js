@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import {  useSelector } from 'react-redux'
 
-
+ 
 function PhotoWall(props) {
     const posts  = useSelector(state => state.postReducer);
     return  <div>   
