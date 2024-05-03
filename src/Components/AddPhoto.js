@@ -9,10 +9,11 @@ const AddPhoto = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [selectedImage, setSelectedImage] = useState(null);
+    const [isDisabledLink,setisDisabledLink] = useState(false)
+    const [isDisabledFile,setisDisabledFile] = useState(false)
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
-        console.log(file);
         if (file) {
         setSelectedImage(URL.createObjectURL(file));
         }
@@ -37,15 +38,33 @@ const AddPhoto = () => {
 
     }
 
+    const onDisableElement = (event) => {
+        console.log(event.target);
+        const LinkEl = event.target.name === 'link' && event.target.value 
+        const FileEl = event.target.name === 'file' && event.target.value 
+        console.log(LinkEl,FileEl);
+        if (LinkEl){
+            setisDisabledFile(true);
+            setisDisabledLink(false)
+        }else if (FileEl){
+            setisDisabledLink(true)
+            setisDisabledFile(false);
+        }else{
+            setisDisabledLink(false)
+            setisDisabledFile(false);
+        }
+
+    }
  
         return (
     <div>
         <h1> Photowall </h1>
         <div className="form">
-          <form onSubmit={handleSubmit}> 
-               <input type ="text" placeholder="Link" name="link"/>
+          <form onSubmit={handleSubmit} onChange={onDisableElement}> 
                <input type ="text" placeholder="Desciption" name="description"/>
-               <input type="file" onChange={handleImageChange} />
+               <input type ="text" placeholder="Link" name="link" disabled={isDisabledLink}  />
+               <p>Or</p>
+               <input type="file" name='file' onChange={handleImageChange} disabled={isDisabledFile} />
                
                <button> Post </button>
           </form>

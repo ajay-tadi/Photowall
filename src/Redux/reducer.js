@@ -1,6 +1,6 @@
 import postsData from './data'
 
-const  postReducer = (state=postsData, action) => {
+const  postReducer = (state=[], action) => {
 
     switch (action.type) {
         case 'REMOVE':
