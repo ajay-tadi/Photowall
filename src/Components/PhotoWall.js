@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import {  useDispatch, useSelector } from 'react-redux'
 import { db } from '../firebase/firebase-config'
 import { collection, getDocs } from 'firebase/firestore'
+import { addPhoto } from '../Redux/Action'
 
  
 function PhotoWall(props) {
@@ -12,7 +13,9 @@ function PhotoWall(props) {
     const dispatch = useDispatch()
 
     const photoDataRef = collection(db, "postsData");
-    
+    const data = useSelector((state)=>state.postReducer);
+    console.log(data, "data")
+
     useEffect(()=>{
         const getPostData = async ()=>{
             const data = await getDocs(photoDataRef);
@@ -29,12 +32,14 @@ function PhotoWall(props) {
                     liked:item.liked,
                     comments:item.comments
                 }
-                dispatch({type:"ADDPHOTO",payload:post})
+                dispatch(addPhoto(post))
             })
-            
-            
         }
-        getPostData()
+
+        if (data.length === 0) {
+            console.log(data, "called")
+            getPostData()
+        }
     },[])
 
     

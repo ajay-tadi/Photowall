@@ -1,14 +1,16 @@
+import { addCommentType, addLikeType, addPhotoType, removePhotoType } from './ActionTypes';
 import postsData from './data'
 
 const  postReducer = (state=[], action) => {
 
     switch (action.type) {
-        case 'REMOVE':
+        case removePhotoType:
             return state.filter((post) => post !== action.payload ) ;
         
-        case "ADDPHOTO":
-            return [...state, action.payload ]
-        case "ADDCOMMENT":
+        case addPhotoType :
+            return [...state, action.payload ];
+
+        case addCommentType :
             
             return state.map((post)=>{
                     if (action.payload.id === post.id){
@@ -21,7 +23,7 @@ const  postReducer = (state=[], action) => {
             
             });
 
-        case "ADDLIKE":
+        case addLikeType :
             return state.map((post)=>{
                 if (action.payload.id === post.id){
                     

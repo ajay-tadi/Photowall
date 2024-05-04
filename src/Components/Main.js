@@ -15,13 +15,6 @@ const Main = () => {
     const navigate = useNavigate()
     
     const posts  = useSelector(state => state.postReducer);
-    const dispatch = useDispatch()
-    // console.log(posts);
-    function removePhoto(postRemoved) {
-        dispatch({
-            type: 'REMOVE', payload:postRemoved
-          })
-    }
 
         const onLogout = async() =>{
             await signOut(auth);

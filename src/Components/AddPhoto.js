@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { addPhoto } from '../Redux/Action';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../firebase/firebase-config';
 
 
 
@@ -19,7 +22,7 @@ const AddPhoto = () => {
         }
     };
     
-    const handleSubmit = (event)=> {
+    const handleSubmit = async (event)=> {
         event.preventDefault();
         const imageLink = event.target.elements.link.value
         const description = event.target.elements.description.value
@@ -32,17 +35,22 @@ const AddPhoto = () => {
             comments:[]
         }
         if (description && (imageLink || selectedImage)){
-            dispatch({type:"ADDPHOTO",payload:post})
+        
+            const myCollection = collection(db, 'postsData');
+    
+            const newDocRef = await addDoc(myCollection, post);
+            console.log(newDocRef);
+
             navigate('/')
         }
 
     }
 
     const onDisableElement = (event) => {
-        console.log(event.target);
+      
         const LinkEl = event.target.name === 'link' && event.target.value 
         const FileEl = event.target.name === 'file' && event.target.value 
-        console.log(LinkEl,FileEl);
+       
         if (LinkEl){
             setisDisabledFile(true);
             setisDisabledLink(false)

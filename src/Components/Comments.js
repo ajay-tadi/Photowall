@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DetailComments from "./DetailComments";
 import { useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
+import { addComment, addLike } from "../Redux/Action";
 
 const Comments = (props) =>{
 
@@ -9,6 +10,7 @@ const Comments = (props) =>{
     const posts = useSelector((state)=>state.postReducer);
     const postData = posts.filter((post)=> post.id==postID.id);
     const {id,description,imageLink,liked, comments} = postData[0];
+    
     const dispatch = useDispatch();
     const navigate = useNavigate();
    
@@ -21,7 +23,7 @@ const Comments = (props) =>{
             id:id,
             comment:comment
         }
-        dispatch({type:"ADDCOMMENT",payload:data});
+        dispatch(addComment(data));
         setComment("");
     }
     const onToggleLike = () =>{
@@ -34,7 +36,7 @@ const Comments = (props) =>{
         }
 
 
-        dispatch({type:"ADDLIKE",payload:data});
+        dispatch(addLike(data));
     }
     
 
